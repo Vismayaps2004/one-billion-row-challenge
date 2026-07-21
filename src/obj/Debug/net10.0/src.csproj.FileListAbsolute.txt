@@ -1,0 +1,14 @@
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/src/obj/Debug/net10.0/src.GeneratedMSBuildEditorConfig.editorconfig
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/src/obj/Debug/net10.0/src.AssemblyInfoInputs.cache
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/src/obj/Debug/net10.0/src.AssemblyInfo.cs
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/src/obj/Debug/net10.0/src.csproj.CoreCompileInputs.cache
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/src/bin/Debug/net10.0/src
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/src/bin/Debug/net10.0/src.deps.json
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/src/bin/Debug/net10.0/src.runtimeconfig.json
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/src/bin/Debug/net10.0/src.dll
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/src/bin/Debug/net10.0/src.pdb
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/src/obj/Debug/net10.0/src.dll
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/src/obj/Debug/net10.0/refint/src.dll
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/src/obj/Debug/net10.0/src.pdb
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/src/obj/Debug/net10.0/src.genruntimeconfig.cache
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/src/obj/Debug/net10.0/ref/src.dll
