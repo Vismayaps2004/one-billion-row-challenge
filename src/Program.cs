@@ -19,4 +19,3 @@ internal class Program
         Console.WriteLine("File path : "+ args[0]);
     }
 }
-
