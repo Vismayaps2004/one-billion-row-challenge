@@ -6,8 +6,10 @@ public class Statistics
     private double max;
     private double sum;
     private double count;
+    
+    
 
-    private Statistics(int temp)
+    public Statistics StoreStatistics(double temp)
     {
         min = temp;
         max = temp;
@@ -15,12 +17,7 @@ public class Statistics
         count = 1;
     }
 
-    public static Statistics create(int temp)
-    {
-        return new Statistics(temp);
-    }
-
-    public void updateStatistics(int temp)
+    public void UpdateStatistics(int temp)
     {
         Console.WriteLine($"{count}: {min} - {max} = {sum} - {count}");
         if (min > temp)
