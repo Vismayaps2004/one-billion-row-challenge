@@ -15,7 +15,7 @@ internal class Program
         }
 
         WeatherProcessor weatherProcessor = new WeatherProcessor();
-        weatherProcessor.process();
+        weatherProcessor.Process();
         Console.WriteLine("File path : "+ args[0]);
     }
 }
