@@ -2,34 +2,32 @@ namespace OneBillionRowChallenge;
 
 public class Statistics
 {
-    private double min;
-    private double max;
-    private double sum;
-    private double count;
     
+    public double Min { get; private set; }
+    public double Max { get; private set; }
+    public double Sum { get; private set; }
+    public int Count { get; private set; }
     
-
-    public Statistics StoreStatistics(double temp)
+    public Statistics(double temperature)
     {
-        min = temp;
-        max = temp;
-        sum = temp;
-        count = 1;
+        Min = temperature;
+        Max = temperature;
+        Sum = temperature;
+        Count = 1;
     }
 
-    public void UpdateStatistics(int temp)
+    public void UpdateStatistics(double temperature)
     {
-        Console.WriteLine($"{count}: {min} - {max} = {sum} - {count}");
-        if (min > temp)
+        if (Min > temperature)
         {
-            min = temp;
+            Min = temperature;
         }
-        if (max < temp)
+        if (Max < temperature)
         {
-            max = temp;
+            Max = temperature;
         }
         
-        sum += temp;
-        count++;
+        Sum += temperature;
+        Count++;
     }
 }

@@ -7,24 +7,23 @@ public class WeatherProcessor
     public void Process()
     {
         var data = "tokyo;36";
-        var parsedData = data.Split(';').ToList();
-        GenerateStatistics(parsedData);
+        var weatherData = data.Split(';');
+        GenerateStatistics(weatherData);
     }
 
-    private void GenerateStatistics(List<string> parsedData)
+    private void GenerateStatistics(string[] weatherData)
     {
-        var temp = int.Parse(parsedData[1]);
-        if (stationStatistics.ContainsKey(parsedData[0])) 
-        {
-            stationStatistics[parsedData[0]].StoreStatistics(temp);
+        string station = weatherData[0];
+        double temperature = double.Parse(weatherData[1]);
+        
+        if (stationStatistics.TryGetValue(station, out Statistics statistic)) 
+        { 
+             statistic.UpdateStatistics(temperature);
+             return;
         }
-        else
-        {
-            Statistics statistics = new Statistics ();
-            statistics.StoreStatistics(temp);
-            stationStatistics.Add(parsedData[0], statistics);    
-        }
-
+        
+        Statistics statistics = new Statistics(temperature); 
+        stationStatistics.Add(station, statistics);
     }
     
 }
