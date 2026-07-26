@@ -1,7 +1,4 @@
-﻿using System;
-using static WeatherProcessor;
-
-namespace  OneBillionRowChallenge;
+﻿namespace  OneBillionRowChallenge;
 
 internal class Program
 {
@@ -15,7 +12,7 @@ internal class Program
         }
 
         WeatherProcessor weatherProcessor = new WeatherProcessor();
-        weatherProcessor.Process();
-        Console.WriteLine("File path : "+ args[0]);
+        var statisticsMap = weatherProcessor.Process();
+        Console.WriteLine("station statistics : "+ statisticsMap);
     }
 }
