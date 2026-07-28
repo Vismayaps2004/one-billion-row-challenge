@@ -12,7 +12,7 @@ internal class Program
         }
 
         WeatherProcessor weatherProcessor = new WeatherProcessor();
-        var statisticsMap = weatherProcessor.Process();
+        var statisticsMap = weatherProcessor.Process(args[0]);
         Console.WriteLine("station statistics : "+ statisticsMap);
     }
 }

@@ -4,6 +4,7 @@
 /Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/test/bin/Debug/net10.0/src.deps.json
 /Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/test/bin/Debug/net10.0/src.runtimeconfig.json
 /Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/test/bin/Debug/net10.0/src
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/test/bin/Debug/net10.0/data/measurements-1.txt
 /Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/test/bin/Debug/net10.0/xunit.runner.visualstudio.testadapter.dll
 /Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/test/bin/Debug/net10.0/OneBillionRowChallenge.Tests.deps.json
 /Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/test/bin/Debug/net10.0/OneBillionRowChallenge.Tests.runtimeconfig.json
@@ -100,3 +101,5 @@
 /Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/test/obj/Debug/net10.0/OneBillionRowChallenge.Tests.pdb
 /Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/test/obj/Debug/net10.0/OneBillionRowChallenge.Tests.genruntimeconfig.cache
 /Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/test/obj/Debug/net10.0/ref/OneBillionRowChallenge.Tests.dll
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/test/bin/Debug/net10.0/data/measurements-2.txt
+/Users/vismayaps/workspace/personal-projects/one-billion-row-challenge/test/bin/Debug/net10.0/data/measurements-4.txt

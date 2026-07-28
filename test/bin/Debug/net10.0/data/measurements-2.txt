@@ -1,2 +1,2 @@
 Tokyo;35.6897
-Paris;40.6897
+Paris;40

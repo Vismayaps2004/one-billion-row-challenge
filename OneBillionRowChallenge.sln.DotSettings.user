@@ -1,7 +1,15 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0fc1b267_002D4dbd_002D4b4d_002D8887_002Dad15ce04cc98/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="StatisticsTests #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AFactAttribute_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002E_002E_003FLibrary_003FApplication_0020Support_003FJetBrains_003FRider2026_002E1_003Fresharper_002Dhost_003FSourcesCache_003Fa0bb57407e64e473814b6906c6e2a4cd6622c898e843bb759436eacf23a_003FFactAttribute_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003ASafeFileHandle_002EUnix_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002E_002E_003FLibrary_003FApplication_0020Support_003FJetBrains_003FRider2026_002E1_003Fresharper_002Dhost_003FSourcesCache_003Fd5ba88ebe2bb5ca92db126c99f92cd49a036f1dc1b84c3528fc6c9d44b1cc3e_003FSafeFileHandle_002EUnix_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0fc1b267_002D4dbd_002D4b4d_002D8887_002Dad15ce04cc98/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="StatisticsTests #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::7CA1EF5C-98A9-1437-B092-65BE3BD5D61D::net10.0::OneBillionRowChallenge.Tests.StatisticsTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::7CA1EF5C-98A9-1437-B092-65BE3BD5D61D::net10.0::OneBillionRowChallenge.Tests.WeatherProcessorTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=467b8c09_002Db5ce_002D45e0_002D8165_002Df70ce46ec6e2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="WeatherProcessorTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::7CA1EF5C-98A9-1437-B092-65BE3BD5D61D::net10.0::OneBillionRowChallenge.Tests.WeatherProcessorTests&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	
