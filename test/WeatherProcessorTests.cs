@@ -6,7 +6,8 @@ public class WeatherProcessorTests
     public void Process_WhenFileContainsOneRecord_ShouldCreateStationStatistics()
     {
         WeatherProcessor weatherProcessor = new WeatherProcessor();
-        var statisticsMap = weatherProcessor.Process("data/measurements-1.txt");
+        Dictionary<string, Statistics> statisticsMap = weatherProcessor.stationStatistics;
+        weatherProcessor.Process("Tokyo;35.6897");
         Assert.Equal(1, statisticsMap.Count);
         bool found = statisticsMap.TryGetValue("Tokyo", out Statistics statistics);
 
@@ -21,10 +22,11 @@ public class WeatherProcessorTests
     public void Process_WhenFileContainsMultipleRecord_ShouldCreateStationStatistics()
     {
         WeatherProcessor weatherProcessor = new WeatherProcessor();
-        var statisticsMap = weatherProcessor.Process("data/measurements-2.txt");
-        Assert.Equal(2, statisticsMap.Count);
-        bool foundTokyo = statisticsMap.TryGetValue("Tokyo", out Statistics tokyo);
-        bool foundParis = statisticsMap.TryGetValue("Paris", out Statistics paris);
+       weatherProcessor.Process("Tokyo;35.6897");
+        weatherProcessor.Process("Paris;40");
+        Assert.Equal(2, weatherProcessor.stationStatistics.Count);
+        bool foundTokyo = weatherProcessor.stationStatistics.TryGetValue("Tokyo", out Statistics tokyo);
+        bool foundParis = weatherProcessor.stationStatistics.TryGetValue("Paris", out Statistics paris);
 
         Assert.True(foundTokyo);
         Assert.True(foundParis);
@@ -41,11 +43,13 @@ public class WeatherProcessorTests
     [Fact]
     public void Process_WhenFileContainsMultipleRecordWithSameStation_ShouldUpdateStationStatistics()
     {
-        WeatherProcessor weatherProcessor = new WeatherProcessor();
-        var statisticsMap = weatherProcessor.Process("data/measurements-4.txt");
-        Assert.Equal(2, statisticsMap.Count);
-        bool foundTokyo = statisticsMap.TryGetValue("Tokyo", out Statistics tokyo);
-        bool foundParis = statisticsMap.TryGetValue("Paris", out Statistics paris);
+        WeatherProcessor weatherProcessor = new WeatherProcessor(); 
+        weatherProcessor.Process("Tokyo;35.6897");
+        weatherProcessor.Process("Tokyo;30");
+        weatherProcessor.Process("Paris;40");
+        Assert.Equal(2, weatherProcessor.stationStatistics.Count);
+        bool foundTokyo = weatherProcessor.stationStatistics.TryGetValue("Tokyo", out Statistics tokyo);
+        bool foundParis = weatherProcessor.stationStatistics.TryGetValue("Paris", out Statistics paris);
 
         Assert.True(foundTokyo);
         Assert.True(foundParis);

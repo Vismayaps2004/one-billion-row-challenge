@@ -3,21 +3,13 @@ using OneBillionRowChallenge;
 public class WeatherProcessor
 {
 
-    private Dictionary<string, Statistics> stationStatistics = new();
-    public Dictionary<string, Statistics> Process(string filePath)
+    public readonly Dictionary<string, Statistics> stationStatistics = new();
+    public void Process(string weatherRecord)
     {
-        using var reader = new StreamReader(filePath);
-        string? weatherRecord = reader.ReadLine();
-        while (weatherRecord != null)
-        {
-            ProcessWeatherStatistics(weatherRecord);
-            weatherRecord = reader.ReadLine();
-        }
-        return stationStatistics; 
-        
+        ProcessWeatherRecord(weatherRecord);
     }
 
-    private void ProcessWeatherStatistics(string weatherRecord)
+    private void ProcessWeatherRecord(string weatherRecord)
     {
         var weatherData = weatherRecord.Split(';');
         string station = weatherData[0];
@@ -25,7 +17,7 @@ public class WeatherProcessor
         
         if (stationStatistics.TryGetValue(station, out Statistics statistic)) 
         { 
-             statistic.UpdateStatistics(temperature);
+             statistic.Update(temperature);
              return;
         }
         

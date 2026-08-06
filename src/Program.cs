@@ -12,7 +12,13 @@ internal class Program
         }
 
         WeatherProcessor weatherProcessor = new WeatherProcessor();
-        var statisticsMap = weatherProcessor.Process(args[0]);
-        Console.WriteLine("station statistics : "+ statisticsMap);
+        WeatherRecordReader weatherRecordReader = new WeatherRecordReader(args[0]);
+        var weatherRecord = weatherRecordReader.ReadLine();
+        while (weatherRecord != null)
+        {
+            weatherProcessor.Process(weatherRecord);
+            weatherRecord = weatherRecordReader.ReadLine();
+        }
+        weatherRecordReader.Dispose();
     }
 }

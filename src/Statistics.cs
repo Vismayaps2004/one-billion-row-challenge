@@ -16,7 +16,7 @@ public class Statistics
         Count = 1;
     }
 
-    public void UpdateStatistics(double temperature)
+    public void Update(double temperature)
     {
         if (Min > temperature)
         {
