@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OneBillionRowChallenge.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd4d65983fa9b54e5dacb598b898d58270bd6f81")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0b5266291766ad5c4aeff0bcb2cb8d1b109b7a4")]
 [assembly: System.Reflection.AssemblyProductAttribute("OneBillionRowChallenge.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OneBillionRowChallenge.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

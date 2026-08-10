@@ -1,4 +1,5 @@
 ﻿namespace  OneBillionRowChallenge;
+using System;
 
 internal class Program
 {
@@ -12,13 +13,12 @@ internal class Program
         }
 
         WeatherProcessor weatherProcessor = new WeatherProcessor();
-        WeatherRecordReader weatherRecordReader = new WeatherRecordReader(args[0]);
-        var weatherRecord = weatherRecordReader.ReadLine();
+        using WeatherRecordReader weatherRecordReader = new WeatherRecordReader(args[0]);
+        string? weatherRecord = weatherRecordReader.ReadLine();
         while (weatherRecord != null)
         {
             weatherProcessor.Process(weatherRecord);
             weatherRecord = weatherRecordReader.ReadLine();
         }
-        weatherRecordReader.Dispose();
     }
 }

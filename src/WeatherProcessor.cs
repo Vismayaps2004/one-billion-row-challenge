@@ -1,15 +1,10 @@
-using OneBillionRowChallenge;
+namespace OneBillionRowChallenge;
 
 public class WeatherProcessor
 {
 
-    public readonly Dictionary<string, Statistics> stationStatistics = new();
+    private readonly Dictionary<string, Statistics> stationStatistics = new();
     public void Process(string weatherRecord)
-    {
-        ProcessWeatherRecord(weatherRecord);
-    }
-
-    private void ProcessWeatherRecord(string weatherRecord)
     {
         var weatherData = weatherRecord.Split(';');
         string station = weatherData[0];

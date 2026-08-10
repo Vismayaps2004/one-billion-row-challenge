@@ -1,6 +1,7 @@
 namespace OneBillionRowChallenge;
-using System.IO;
 
+using System.IO;
+using System;
 public class WeatherRecordReader : IDisposable
 {
     private readonly StreamReader reader;
