@@ -7,6 +7,7 @@ public class Statistics
     public double Max { get; private set; }
     public double Sum { get; private set; }
     public int Count { get; private set; }
+    public double Mean { get; private set; }
     
     public Statistics(double temperature)
     {
@@ -30,4 +31,10 @@ public class Statistics
         Sum += temperature;
         Count++;
     }
+
+    public void CalculateMean()
+    {
+        Mean = Sum / Count;
+    }
+    
 }

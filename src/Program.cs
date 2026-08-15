@@ -20,5 +20,7 @@ internal class Program
             weatherProcessor.Process(weatherRecord);
             weatherRecord = weatherRecordReader.ReadLine();
         }
+        WriteOutput writeOutput = new WriteOutput();
+        weatherProcessor.PrintStatistics();
     }
 }
