@@ -19,16 +19,9 @@ public class WeatherProcessor
         Statistics statistics = new Statistics(temperature); 
         stationStatistics.Add(station, statistics);
     }
-
-    public void PrintStatistics()
+    
+    public IEnumerable<KeyValuePair<string, Statistics>> GetStatistics()
     {
-        foreach (var keyValuePair in stationStatistics)
-        {
-            keyValuePair.Value.CalculateMean();
-            Console.WriteLine("Statistics for {0}",keyValuePair.Key);
-            Console.WriteLine("Minimum : {0}", keyValuePair.Value.Min);
-            Console.WriteLine("Maximum : {0}", keyValuePair.Value.Max);
-            Console.WriteLine("Mean : {0}", keyValuePair.Value.Mean);
-        }
+        return stationStatistics;
     }
 }
