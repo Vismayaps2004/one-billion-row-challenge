@@ -6,16 +6,16 @@ public class WeatherProcessorTests
     public void Process_WhenFileContainsOneRecord_ShouldCreateStationStatistics()
     {
         WeatherProcessor weatherProcessor = new WeatherProcessor();
-        Dictionary<string, Statistics> statisticsMap = weatherProcessor.stationStatistics;
         weatherProcessor.Process("Tokyo;35.6897");
-        Assert.Equal(1, statisticsMap.Count);
-        bool found = statisticsMap.TryGetValue("Tokyo", out Statistics statistics);
-
-        Assert.True(found);
-        Assert.Equal(35.6897, statistics.Min);
-        Assert.Equal(35.6897, statistics.Max);
-        Assert.Equal(35.6897, statistics.Sum);
-        Assert.Equal(1, statistics.Count);
+        IEnumerable<KeyValuePair<string, Statistics>> statisticsMap = weatherProcessor.GetStatistics();
+        Assert.Single(statisticsMap);
+        Statistics tokyo = statisticsMap.Single().Value;
+        Assert.Equal(1, tokyo.Count);
+        
+        Assert.Equal(35.6897, tokyo.Min);
+        Assert.Equal(35.6897, tokyo.Max);
+        Assert.Equal(35.6897, tokyo.Sum);
+        Assert.Equal(1, tokyo.Count);
     }
     
     [Fact]
@@ -24,12 +24,11 @@ public class WeatherProcessorTests
         WeatherProcessor weatherProcessor = new WeatherProcessor();
        weatherProcessor.Process("Tokyo;35.6897");
         weatherProcessor.Process("Paris;40");
-        Assert.Equal(2, weatherProcessor.stationStatistics.Count);
-        bool foundTokyo = weatherProcessor.stationStatistics.TryGetValue("Tokyo", out Statistics tokyo);
-        bool foundParis = weatherProcessor.stationStatistics.TryGetValue("Paris", out Statistics paris);
-
-        Assert.True(foundTokyo);
-        Assert.True(foundParis);
+        var statistics = weatherProcessor.GetStatistics();
+        Statistics tokyo = statistics.Single(x => x.Key == "Tokyo").Value;
+        Statistics paris = statistics.Single(x => x.Key == "Paris").Value;
+        
+        Assert.Equal(2, statistics.Count());
         Assert.Equal(35.6897, tokyo.Min);
         Assert.Equal(35.6897, tokyo.Max);
         Assert.Equal(35.6897, tokyo.Sum);
@@ -47,16 +46,17 @@ public class WeatherProcessorTests
         weatherProcessor.Process("Tokyo;35.6897");
         weatherProcessor.Process("Tokyo;30");
         weatherProcessor.Process("Paris;40");
-        Assert.Equal(2, weatherProcessor.stationStatistics.Count);
-        bool foundTokyo = weatherProcessor.stationStatistics.TryGetValue("Tokyo", out Statistics tokyo);
-        bool foundParis = weatherProcessor.stationStatistics.TryGetValue("Paris", out Statistics paris);
+        var statistics = weatherProcessor.GetStatistics();
+        
+        Statistics tokyo = statistics.Single(x => x.Key == "Tokyo").Value;
+        Statistics paris = statistics.Single(x => x.Key == "Paris").Value;
 
-        Assert.True(foundTokyo);
-        Assert.True(foundParis);
+        Assert.Equal(2, statistics.Count());
         Assert.Equal(30, tokyo.Min);
         Assert.Equal(35.6897, tokyo.Max);
         Assert.Equal(65.6897, tokyo.Sum);
         Assert.Equal(2, tokyo.Count);
+        Assert.Equal(32.84485, tokyo.Mean(), 5);
         Assert.Equal(40, paris.Min);
         Assert.Equal(40, paris.Max);
         Assert.Equal(40, paris.Sum);

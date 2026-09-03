@@ -8,12 +8,21 @@
     ".NETCoreApp,Version=v10.0": {
       "OneBillionRowChallenge.Tests/1.0.0": {
         "dependencies": {
+          "JetBrains.Annotations": "2026.2.0",
           "Microsoft.NET.Test.Sdk": "17.14.1",
           "src": "1.0.0",
           "xunit": "2.9.3"
         },
         "runtime": {
           "OneBillionRowChallenge.Tests.dll": {}
+        }
+      },
+      "JetBrains.Annotations/2026.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {
+            "assemblyVersion": "4242.42.42.42",
+            "fileVersion": "2026.2.0.0"
+          }
         }
       },
       "Microsoft.CodeCoverage/17.14.1": {
@@ -346,6 +355,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "JetBrains.Annotations/2026.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-drvAEaI7Xf4wU6dx4UTB9MoZWXZlraaQ0qoeThPQ411FxNhId7QdUTukIC9I8aUHP0ycAaGwZNKqSvfOZQvUlg==",
+      "path": "jetbrains.annotations/2026.2.0",
+      "hashPath": "jetbrains.annotations.2026.2.0.nupkg.sha512"
     },
     "Microsoft.CodeCoverage/17.14.1": {
       "type": "package",

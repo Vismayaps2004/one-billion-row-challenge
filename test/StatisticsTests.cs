@@ -25,4 +25,28 @@ public class StatisticsTests
         Assert.Equal(40, statistics.Max);
         Assert.Equal(2, statistics.Count);
     }
+    
+    [Fact]
+    public void GetMeanOfAStation()
+    {
+        Statistics statistics = new Statistics(30);
+        Assert.Equal(30, statistics.Mean());
+    }
+    
+    [Fact]
+    public void GetMeanOfTwoStation()
+    {
+        Statistics statistics = new Statistics(30);
+        statistics.Update(40);
+        Assert.Equal(35, statistics.Mean());
+    }
+    
+    [Fact]
+    public void UpdateSumOfStatisticsOfStation()
+    {
+        Statistics statistics = new Statistics(30);
+        statistics.Update(40);
+
+        Assert.Equal(70, statistics.Sum);
+    }
 }
