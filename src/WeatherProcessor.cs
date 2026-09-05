@@ -6,9 +6,9 @@ public class WeatherProcessor
     private readonly Dictionary<string, Statistics> stationStatistics = new();
     public void Process(string weatherRecord)
     {
-        var weatherData = weatherRecord.Split(';');
-        string station = weatherData[0];
-        double temperature = double.Parse(weatherData[1]);
+        var separatorIndex = weatherRecord.IndexOf(';');
+        var station = weatherRecord.Substring(0, separatorIndex);
+        var temperature = double.Parse(weatherRecord.AsSpan().Slice(separatorIndex + 1));
         
         if (stationStatistics.TryGetValue(station, out Statistics statistic)) 
         { 

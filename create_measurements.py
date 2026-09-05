@@ -96,7 +96,7 @@ def build_test_data(weather_station_names, num_rows_to_create):
     print('Building test data...')
 
     try:
-        with open("data/measurements1000000000.txt.txt.txt.txt", 'w') as file:
+        with open("data/measurements1000000000.txt", 'w') as file:
             progress = 0
             total_chunks = chunks + (1 if remainder > 0 else 0)
 
@@ -138,10 +138,10 @@ def build_test_data(weather_station_names, num_rows_to_create):
 
     end_time = time.time()
     elapsed_time = end_time - start_time
-    file_size = os.path.getsize("data/measurements1000000000.txt.txt.txt.txt")
+    file_size = os.path.getsize("data/measurements1000000000.txt")
     human_file_size = convert_bytes(file_size)
 
-    print("Test data successfully written to data/measurements1000000000.txt.txt.txt.txt")
+    print("Test data successfully written to data/measurements1000000000.txt")
     print(f"Actual file size:  {human_file_size}")
     print(f"Elapsed time: {format_elapsed_time(elapsed_time)}")
 

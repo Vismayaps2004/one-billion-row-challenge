@@ -1,4 +1,6 @@
-﻿namespace  OneBillionRowChallenge;
+﻿using System.Diagnostics;
+
+namespace  OneBillionRowChallenge;
 using System;
 
 internal class Program
@@ -12,8 +14,9 @@ internal class Program
             return ;
         }
 
+        Stopwatch stopwatch = Stopwatch.StartNew();
         WeatherProcessor weatherProcessor = new WeatherProcessor();
-        using WeatherRecordReader weatherRecordReader = new WeatherRecordReader(args[0]);
+        using WeatherRecordReader weatherRecordReader = new WeatherRecordReader($"../data/{args[0]}");
         string? weatherRecord = weatherRecordReader.ReadLine();
         while (weatherRecord != null)
         {
@@ -21,8 +24,11 @@ internal class Program
             weatherRecord = weatherRecordReader.ReadLine();
         }
 
+        stopwatch.Stop();
         IEnumerable<KeyValuePair<string, Statistics>> statistics = weatherProcessor.GetStatistics();
-        using OutputWriter outputWriter = new OutputWriter("../output/output.txt", statistics);
+        using OutputWriter outputWriter = new OutputWriter($"../output/{args[0]}", statistics);
         outputWriter.WriteOutput();
+        
+        Console.WriteLine($"Time taken to process data {stopwatch.Elapsed}");
     }
 }
