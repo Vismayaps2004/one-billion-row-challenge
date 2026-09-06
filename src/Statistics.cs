@@ -1,22 +1,14 @@
 namespace OneBillionRowChallenge;
 
-public class Statistics
+public class Statistics(int temperature)
 {
     
-    public double Min { get; private set; }
-    public double Max { get; private set; }
-    public double Sum { get; private set; }
-    public int Count { get; private set; }
-    
-    public Statistics(double temperature)
-    {
-        Min = temperature;
-        Max = temperature;
-        Sum = temperature;
-        Count = 1;
-    }
+    public int Min { get; private set; } = temperature;
+    public int Max { get; private set; } = temperature;
+    public int Sum { get; private set; } = temperature;
+    public int Count { get; private set; } = 1;
 
-    public void Update(double temperature)
+    public void Update(int temperature)
     {
         if (Min > temperature)
         {
@@ -31,7 +23,7 @@ public class Statistics
         Count++;
     }
 
-    public double Mean()
+    public int Mean()
     {
         return Sum / Count;
     }

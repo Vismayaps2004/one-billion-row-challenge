@@ -2,25 +2,19 @@ namespace OneBillionRowChallenge;
 using System.IO;
 using System;
 
-public class OutputWriter : IDisposable
+public class OutputWriter(string file, IEnumerable<KeyValuePair<string, Statistics>> statistics)
+    : IDisposable
 {
-    private StreamWriter writer;
-    private readonly IEnumerable<KeyValuePair<string, Statistics>> statistics;
-
-    public OutputWriter(string file, IEnumerable<KeyValuePair<string, Statistics>> statistics)
-    {
-        writer = new StreamWriter(file);
-        this.statistics = statistics;
-    }
+    private StreamWriter writer = new(file);
 
     public void WriteOutput()
     {
         foreach (var keyValuePair in statistics)
         {
             writer.WriteLine("Station statistics : {0}",keyValuePair.Key);
-            writer.WriteLine("Min : {0}",keyValuePair.Value.Min);
-            writer.WriteLine("Mean : {0}",keyValuePair.Value.Mean());
-            writer.WriteLine("Max : {0}",keyValuePair.Value.Max);
+            writer.WriteLine("Min : {0}",keyValuePair.Value.Min / 10);
+            writer.WriteLine("Mean : {0}",keyValuePair.Value.Mean()  / 10);
+            writer.WriteLine("Max : {0}",keyValuePair.Value.Max / 10);
         }
     }
 
