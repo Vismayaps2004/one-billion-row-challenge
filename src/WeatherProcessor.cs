@@ -3,22 +3,22 @@ namespace OneBillionRowChallenge;
 public class WeatherProcessor
 {
 
-    private readonly Dictionary<string, Statistics> stationStatistics = new();
+    private readonly Dictionary<int, Statistics> stationStatistics = new();
     public void Process(string weatherRecord)
     {
         var separatorIndex = weatherRecord.IndexOf(';');
         var station = weatherRecord.AsSpan().Slice(0,separatorIndex);
-         int temperatureSpan = ParseTemperature(weatherRecord.AsSpan(separatorIndex + 1));
+        int temperatureSpan = ParseTemperature(weatherRecord.AsSpan(separatorIndex + 1));
+        int stationHashCode = string.GetHashCode(station);
 
-        Dictionary<string, Statistics>.AlternateLookup<ReadOnlySpan<char>> lookup = stationStatistics.GetAlternateLookup<ReadOnlySpan<char>>();
-        if (lookup.TryGetValue(station, out Statistics statistic)) 
+        if (stationStatistics.TryGetValue(stationHashCode, out Statistics statistic)) 
         { 
              statistic.Update(temperatureSpan);
              return;
         }
         
-        Statistics statistics = new Statistics(temperatureSpan); 
-        stationStatistics.Add(station.ToString(), statistics);
+        Statistics statistics = new Statistics(temperatureSpan, station.ToString()); 
+        stationStatistics.Add(stationHashCode, statistics);
     }
 
     private static int ParseTemperature(ReadOnlySpan<char> temperature)
@@ -45,7 +45,7 @@ public class WeatherProcessor
         return isNegative ? -value :value;
     }
 
-    public IEnumerable<KeyValuePair<string, Statistics>> GetStatistics()
+    public IEnumerable<KeyValuePair<int, Statistics>> GetStatistics()
     {
         Console.WriteLine(stationStatistics.Count);
         return stationStatistics;

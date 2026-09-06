@@ -7,16 +7,22 @@ internal class Program
 {
     static void Main(string[] args)
     {
+        long before = GC.GetTotalAllocatedBytes(true);
         Console.WriteLine("=== 1BRC === ");
         if (args.Length == 0)
         {
             Console.WriteLine("provide file path");
             return ;
         }
-
-        Stopwatch stopwatch = Stopwatch.StartNew();
+        
+        int gen0Before = GC.CollectionCount(0);
+        int gen1Before = GC.CollectionCount(1);
+        int gen2Before = GC.CollectionCount(2);
+        
         WeatherProcessor weatherProcessor = new WeatherProcessor();
         using WeatherRecordReader weatherRecordReader = new WeatherRecordReader($"../data/{args[0]}");
+        
+        Stopwatch stopwatch = Stopwatch.StartNew();
         string? weatherRecord = weatherRecordReader.ReadLine();
         while (weatherRecord != null)
         {
@@ -25,7 +31,14 @@ internal class Program
         }
 
         stopwatch.Stop();
-        IEnumerable<KeyValuePair<string, Statistics>> statistics = weatherProcessor.GetStatistics();
+        long after = GC.GetTotalAllocatedBytes(true);
+
+        Console.WriteLine($"Allocated: {after - before:N0} bytes");
+        Console.WriteLine($"Gen0: {GC.CollectionCount(0) - gen0Before}");
+        Console.WriteLine($"Gen1: {GC.CollectionCount(1) - gen1Before}");
+        Console.WriteLine($"Gen2: {GC.CollectionCount(2) - gen2Before}");
+        
+        IEnumerable<KeyValuePair<int, Statistics>> statistics = weatherProcessor.GetStatistics();
         using OutputWriter outputWriter = new OutputWriter($"../output/{args[0]}", statistics);
         outputWriter.WriteOutput();
         

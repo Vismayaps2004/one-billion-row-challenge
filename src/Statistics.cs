@@ -1,12 +1,14 @@
 namespace OneBillionRowChallenge;
 
-public class Statistics(int temperature)
+public class Statistics(int temperature, string? station)
 {
     
     public int Min { get; private set; } = temperature;
     public int Max { get; private set; } = temperature;
     public int Sum { get; private set; } = temperature;
     public int Count { get; private set; } = 1;
+    
+    public string Station {get; private set;} = station;
 
     public void Update(int temperature)
     {
