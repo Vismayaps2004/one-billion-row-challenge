@@ -20,14 +20,12 @@ internal class Program
         int gen2Before = GC.CollectionCount(2);
         
         WeatherProcessor weatherProcessor = new WeatherProcessor();
-        using WeatherRecordReader weatherRecordReader = new WeatherRecordReader($"../data/{args[0]}");
+        using WeatherRecordReader reader = new WeatherRecordReader($"../data/{args[0]}");
         
         Stopwatch stopwatch = Stopwatch.StartNew();
-        string? weatherRecord = weatherRecordReader.ReadLine();
-        while (weatherRecord != null)
+        while (reader.TryReadRecord(out ReadOnlySpan<byte> record))
         {
-            weatherProcessor.Process(weatherRecord);
-            weatherRecord = weatherRecordReader.ReadLine();
+            weatherProcessor.Process(record);
         }
 
         stopwatch.Stop();
